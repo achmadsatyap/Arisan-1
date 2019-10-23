@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "119657640222",
+    "firebase_url": "https://arisan-9cae1.firebaseio.com",
+    "project_id": "arisan-9cae1",
+    "storage_bucket": "arisan-9cae1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119657640222:android:fb26ee61bad54d3b0a990f",
+        "android_client_info": {
+          "package_name": "com.adit.arisan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119657640222-b334uf11c95njftpamhgg37edsvuuccl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adit.arisan",
+            "certificate_hash": "db83221b4510d24c857636f1fa307e85c066cdfd"
+          }
+        },
+        {
+          "client_id": "119657640222-1pa18s23kmt6610dkic655dforug8acg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvGw9AsIJXuloy2h99zuPsZuwP_kT0-gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119657640222-1pa18s23kmt6610dkic655dforug8acg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
