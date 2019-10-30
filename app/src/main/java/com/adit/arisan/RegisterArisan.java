@@ -38,12 +38,13 @@ public class RegisterArisan extends AppCompatActivity {
         etAlamat = findViewById(R.id.edt_alamat);
         etEmail = findViewById(R.id.edt_email);
         regbtn = findViewById(R.id.btn_req);
-        databaseReference = FirebaseDatabase.getInstance().getReference().push();
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                addUser();
+
 
     }
 
@@ -57,9 +58,19 @@ public class RegisterArisan extends AppCompatActivity {
         if (username.isEmpty() || nama.isEmpty() || password.isEmpty() || alamat.isEmpty() || email.isEmpty()){
             showMessage("Mohon isi semua kolom ");
         }else {
-            User user = new User(username,nama,password,alamat,email);
-            databaseReference.push().setValue(user);
+            User user= new User(username,nama,password,email,alamat);
+            databaseReference.child(username).child("username").setValue(username.toString());
+            databaseReference.child(username).child("nama").setValue(nama.toString());
+            databaseReference.child(username).child("email").setValue(email.toString());
+            databaseReference.child(username).child("alamat").setValue(alamat.toString());
+            try {
+                databaseReference.child(username).child("password").setValue(Security.encrypt(password));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Toast.makeText(getApplication(),"Success",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplication(),LoginArisan.class);
+            startActivity(intent);
         }
     }
         });

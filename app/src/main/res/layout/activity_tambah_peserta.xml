@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:text="Tambah Arisan"
+        android:text="Tambah Peserta"
         android:textColor="#313131"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,13 +26,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Nama Arisan"
+        android:text="Nama Peserta"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hasiltransaksi" />
     <EditText
-        android:id="@+id/edt_namaArisan"
+        android:id="@+id/edt_namaPesertaArisan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -45,18 +45,18 @@
         />
 
     <TextView
-        android:id="@+id/nominal"
+        android:id="@+id/noHp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Nominal"
+        android:text="No Hp"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_namaArisan" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_namaPesertaArisan" />
     <EditText
-        android:id="@+id/edt_nominal"
+        android:id="@+id/edt_noHp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -65,22 +65,21 @@
         android:hint=""
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nominal"
+        app:layout_constraintTop_toBottomOf="@id/noHp"
         />
     <TextView
-        android:id="@+id/tanggal"
+        android:id="@+id/alamatPeserta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
-        android:hint="Contoh : Bulanan"
-        android:text="Keterangan"
+        android:text="Alamat"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nominal" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_noHp" />
     <EditText
-        android:id="@+id/edt_tanggal"
+        android:id="@+id/edt_AlamatPeserta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -88,10 +87,10 @@
         android:layout_marginRight="24dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tanggal"/>
+        app:layout_constraintTop_toBottomOf="@id/alamatPeserta"/>
 
     <Button
-        android:id="@+id/btn_exit"
+        android:id="@+id/btn_keluar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -100,10 +99,10 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_tanggal" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_AlamatPeserta" />
 
     <Button
-        android:id="@+id/btn_tambahGrup"
+        android:id="@+id/btn_tambah_peserta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -112,7 +111,6 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_tanggal" />
-
+        app:layout_constraintTop_toBottomOf="@+id/edt_AlamatPeserta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

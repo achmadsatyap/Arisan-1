@@ -5,18 +5,33 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.adit.arisan.Grup;
 import com.adit.arisan.HasilArisan;
+import com.adit.arisan.Module;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahGrup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,17 +43,13 @@ public class Arisan extends Fragment{
 
     private OnFragmentInteractionListener mListener;
 
-    public Arisan() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View view =  inflater.inflate(R.layout.fragment_arisan, container, false);
+
         FloatingActionButton tambahButton= view.findViewById(R.id.fab);
         tambahButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,16 +59,9 @@ public class Arisan extends Fragment{
 
                 }
         });
-//       TextView textView =  view.findViewById(R.id.contoh);
-//       textView.setOnClickListener(new View.OnClickListener() {
 //
-//           @Override
-//           public void onClick(View view) {
-//               Intent sae = new Intent(getActivity(), HasilArisan.class);
-//               startActivity(sae);
-//           }
-//       });
         return view;
+
 
     }
 

@@ -7,19 +7,13 @@
     tools:context=".PesertaArisan"
     >
 
+
     <FrameLayout
-        android:id="@+id/fragment_container"
+        android:id="@+id/activity_awal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="360dp">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation"
-        />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
