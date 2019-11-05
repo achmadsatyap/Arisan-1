@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih Peserta"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        />
+
+    <ListView
+        android:id="@+id/listPilih"
+        android:layout_width="match_parent"
+        android:layout_height="577dp" />
+
+    <Button
+        android:id="@+id/btn_simpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:background="@drawable/button_blue"/>
+</LinearLayout>

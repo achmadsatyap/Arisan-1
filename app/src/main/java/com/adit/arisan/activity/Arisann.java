@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -32,7 +33,7 @@ public class Arisann extends AppCompatActivity {
     DatabaseReference databaseReference;
     ListView listView;
     ArrayAdapter<String> arrayAdapter;
-    //    Module module;
+    //    Model module;
     ArrayList<String> grupList;
     //    List<Peserta> pesertaList;
     Grup grup;
@@ -70,7 +71,7 @@ public class Arisann extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                     grup = postSnapshot.getValue(Grup.class);
-                    grupList.add(grup.getNamaArisan().toString()+ "    " + grup.getNominal().toString()+ "    " + grup.getKeterangan().toString());
+                    grupList.add(grup.getNamaArisan());
                 }
                 listView.setAdapter(arrayAdapter);
             }
@@ -78,6 +79,14 @@ public class Arisann extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(Arisann.this, DetailGrup.class);
+                intent.putExtra("namaArisan", listView.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         FloatingActionButton floatingActionButton = (FloatingActionButton)findViewById(R.id.fab);

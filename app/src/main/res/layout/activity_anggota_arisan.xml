@@ -35,9 +35,7 @@
         android:id="@+id/listviewtxt"
         android:layout_width="434dp"
         android:layout_height="320dp"
-        android:layout_alignParentTop="true">
-
-    </ListView>
+        android:layout_alignParentTop="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab2"

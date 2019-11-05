@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".activity.DetailGrup"
-    >
+    tools:context=".activity.DetailAnggota">
 
     <TextView
-        android:id="@+id/hasiltransaksi"
+        android:id="@+id/DetailPesertaArisan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:text="Hasil Transaksi"
+        android:text="Detail Peserta Arisan"
         android:textColor="#313131"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,29 +19,29 @@
         android:layout_marginTop="20dp"
         />
     <TextView
-        android:id="@+id/namaArisan"
+        android:id="@+id/detailPeserta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Nama Arisan"
+        android:text="Nama Peserta Arisan"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hasiltransaksi" />
+        app:layout_constraintTop_toBottomOf="@id/DetailPesertaArisan" />
     <TextView
-        android:id="@+id/text_namaArisan"
+        android:id="@+id/edt_DetailPesertaArisan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="24dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginRight="24dp"
         android:hint=""
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/namaArisan"
+        app:layout_constraintTop_toBottomOf="@id/detailPeserta"
         />
 
     <TextView
@@ -52,19 +50,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Nominal"
+        android:text="No Hp"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_namaArisan" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_DetailPesertaArisan" />
     <TextView
-        android:id="@+id/text_nominal"
+        android:id="@+id/edt_DetailHp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="24dp"
         android:hint=""
         app:layout_constraintLeft_toLeftOf="parent"
@@ -77,76 +75,37 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
-        android:text="Keterangan"
+        android:text="Alamat"
         android:textColor="#313131"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nominal" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_DetailHp" />
     <TextView
-        android:id="@+id/text_tanggal"
+        android:id="@+id/edt_DetailAlamatPeserta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="24dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tanggal"/>
 
     <Button
-        android:id="@+id/btn_history"
+        android:id="@+id/btn_keluarDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:background="@drawable/button_blue"
-        android:text="History"
+        android:text="Keluar"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_DetailAlamatPeserta" />
 
-    <Button
-        android:id="@+id/btn_kocok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:background="@drawable/button_blue"
-        android:text="Kocok"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_hasil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="321dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="158dp"
-        android:clickable="true"
-        android:src="@drawable/tambah"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_history" />
 
-    <TextView
-        android:id="@+id/pesertaArisan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="15dp"
-        android:text="peserta Arisan"
-        android:textColor="#313131"
-        android:textSize="32sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_kocok"
-
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

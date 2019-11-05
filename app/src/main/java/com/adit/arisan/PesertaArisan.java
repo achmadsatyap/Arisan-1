@@ -11,12 +11,10 @@ import android.view.MenuItem;
 
 import com.adit.arisan.activity.AnggotaArisann;
 import com.adit.arisan.activity.Arisann;
-import com.adit.arisan.fragment.AnggotaArisan;
-import com.adit.arisan.fragment.Arisan;
 
 
 public class PesertaArisan extends AppCompatActivity {
-    private Arisan arisan;
+//    private Arisan arisan;
     public Menu menu;
 
     @Override
@@ -43,7 +41,7 @@ public class PesertaArisan extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        arisan = new Arisan();
+//        arisan = new Arisan();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 //        loadFragment(new AnggotaArisann());

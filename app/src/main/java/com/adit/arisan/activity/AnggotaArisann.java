@@ -1,7 +1,6 @@
 package com.adit.arisan.activity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,12 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.adit.arisan.Module;
 import com.adit.arisan.Peserta;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahPeserta;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,14 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AnggotaArisann extends AppCompatActivity {
 
-    DatabaseReference databaseReference;
-    ListView listView;
+    private DatabaseReference databaseReference;
+    private ListView listView;
     ArrayAdapter<String> arrayAdapter;
-//    Module module;
+//    Model module;
     ArrayList<String> pesertaList;
 //    List<Peserta> pesertaList;
     Peserta peserta;
@@ -62,7 +58,7 @@ public class AnggotaArisann extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anggota_arisan);
-//        module =((Module)getApplicationContext());
+//        module =((Model)getApplicationContext());
         databaseReference = FirebaseDatabase.getInstance().getReference("Peserta");
         listView = (ListView) findViewById(R.id.listviewtxt);
         pesertaList = new ArrayList<>();
@@ -70,9 +66,9 @@ public class AnggotaArisann extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     peserta = postSnapshot.getValue(Peserta.class);
-                    pesertaList.add(peserta.getNama().toString());
+                    pesertaList.add(peserta.getNama());
                 }
                 listView.setAdapter(arrayAdapter);
             }
@@ -82,7 +78,14 @@ public class AnggotaArisann extends AppCompatActivity {
 
             }
         });
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(AnggotaArisann.this, DetailAnggota.class);
+                intent.putExtra("nama", listView.getItemAtPosition(i).toString());
+                startActivity(intent);
+            }
+        });
          FloatingActionButton floatingActionButton = (FloatingActionButton)findViewById(R.id.fab2);
          floatingActionButton.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -91,4 +94,7 @@ public class AnggotaArisann extends AppCompatActivity {
              }
          });
     }
+
+
+
 }

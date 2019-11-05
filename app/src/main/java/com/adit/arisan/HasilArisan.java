@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.adit.arisan.fragment.Arisan;
 
 public class HasilArisan extends AppCompatActivity{
 //    private OnFragmentInteractionListener mListener;
@@ -16,7 +15,6 @@ public class HasilArisan extends AppCompatActivity{
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hasil_arisan);
     }
 
     public void postKocok(View view) {
