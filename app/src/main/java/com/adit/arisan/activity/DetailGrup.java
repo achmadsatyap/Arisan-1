@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.adit.arisan.PilihPeserta;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahGrup;
+import com.adit.arisan.model.HasilArisann;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,12 +23,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DetailGrup extends AppCompatActivity {
 
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, detailArisan;
 
     TextView textArisan, textNominal, textKeterangan;
-    Button Kocok, History;
+    Button Kocok, History, Anggota;
+    private boolean isBaru;
 
-    private String NamaGrup;
+    private String NamaGrup, NamaPeserta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +42,20 @@ public class DetailGrup extends AppCompatActivity {
 
         Kocok = findViewById(R.id.btn_keluar);
         History = findViewById(R.id.btn_history);
+        Anggota = findViewById(R.id.btn_tampilAnggotaGrup);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Grup");
+        detailArisan = FirebaseDatabase.getInstance().getReference("HasilArisann");
+//        NamaPeserta = getIntent().getExtras().getString("nama");
         NamaGrup = getIntent().getExtras().getString("namaArisan");
+//        NamaPeserta = getIntent().getExtras().getString("nama");
         redData();
-        FloatingActionButton floatingActionButton = (FloatingActionButton)findViewById(R.id.fab_hasil);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+        Anggota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PilihPeserta.class));
+                addData();
+                startActivity(new Intent(getApplicationContext(),AnggotaGrup.class));
             }
         });
 
@@ -56,23 +63,38 @@ public class DetailGrup extends AppCompatActivity {
     }
 
     private void redData() {
-       Query findByQuery = databaseReference.orderByKey().equalTo(NamaGrup);
+        Query findByQuery = databaseReference.orderByKey().equalTo(NamaGrup);
+        findByQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot getSnapshot : dataSnapshot.getChildren()) {
+                    textArisan.setText(getSnapshot.child("namaArisan").getValue().toString());
+                    textNominal.setText(getSnapshot.child("nominal").getValue().toString());
+                    textKeterangan.setText(getSnapshot.child("keterangan").getValue().toString());
+//                        textPeserta.setText(getSnapshot.child("nama").getValue().toString());
+                }
+            }
 
-       findByQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               for(DataSnapshot getSnapshot : dataSnapshot.getChildren()){
-                   textArisan.setText(getSnapshot.child("namaArisan").getValue().toString());
-                   textNominal.setText(getSnapshot.child("nominal").getValue().toString());
-                   textKeterangan.setText(getSnapshot.child("keterangan").getValue().toString());
-               }
-           }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-           @Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
-           }
-       });
     }
+
+    private void addData() {
+        final String namaArisan = textArisan.getText().toString();
+        final String nominal = textNominal.getText().toString();
+        final String keterangan = textKeterangan.getText().toString();
+        HasilArisann hasilArisann = new HasilArisann(namaArisan);
+        detailArisan.child(namaArisan).child("namaArisan").setValue(namaArisan);
+//        detailArisan.child(namaArisan).child("nominal").setValue(nominal);
+//        detailArisan.child(namaArisan).child("keterangan").setValue(keterangan);
+
+    }
+
+
+
 }
 

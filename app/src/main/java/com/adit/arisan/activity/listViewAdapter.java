@@ -62,7 +62,7 @@ class listViewAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.check_peserta, null, true);
 
             holder.checkBox = (CheckBox) convertView.findViewById(R.id.CheckPeserta);
-            holder.nama = (TextView) convertView.findViewById(R.id.namaCheck);
+//            holder.nama = (TextView) convertView.findViewById(R.id.namaCheck);
 
             convertView.setTag(holder);
         }else {

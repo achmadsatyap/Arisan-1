@@ -12,10 +12,16 @@
         android:textSize="25dp"
         />
 
+    <TextView
+        android:id="@+id/txtArisan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <ListView
         android:id="@+id/listPilih"
         android:layout_width="match_parent"
-        android:layout_height="577dp" />
+        android:layout_height="434dp" />
 
     <Button
         android:id="@+id/btn_simpan"

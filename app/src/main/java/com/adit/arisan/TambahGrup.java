@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adit.arisan.activity.Arisann;
+import com.adit.arisan.model.Grup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -17,7 +18,7 @@ public class TambahGrup extends AppCompatActivity {
 
     EditText tNamaGrup,tNominal,tKeterangan;
     Button btnTambahGrup,btnKeluar;
-    DatabaseReference gruparisan;
+    DatabaseReference gruparisan,hasilArisan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +42,16 @@ public class TambahGrup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addGrup();
+//                addArisan();
             }
         });
     }
+
+//    private void addArisan() {
+//        final String namaArisan = tNamaGrup.getText().toString();
+//        HasilArisann hasilArisann = new HasilArisann(namaArisan);
+//        hasilArisan.child(namaArisan).setValue(namaArisan.toString());
+//    }
 
     private void addGrup() {
         final String namaArisan = tNamaGrup.getText().toString();
@@ -53,7 +61,7 @@ public class TambahGrup extends AppCompatActivity {
         if ( namaArisan.isEmpty() || keterangan.isEmpty() || nominal.isEmpty()){
             showMessage("Mohon isi semua kolom ");
         }else {
-            Grup arisan = new Grup (namaArisan,keterangan,nominal);
+            Grup arisan = new Grup(namaArisan,keterangan,nominal);
             gruparisan.child(namaArisan).child("namaArisan").setValue(namaArisan.toString());
             gruparisan.child(namaArisan).child("keterangan").setValue(keterangan.toString());
             gruparisan.child(namaArisan).child("nominal").setValue(nominal.toString());

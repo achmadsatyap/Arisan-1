@@ -1,4 +1,4 @@
-package com.adit.arisan;
+package com.adit.arisan.model;
 
 import android.util.Base64;
 

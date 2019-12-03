@@ -1,4 +1,4 @@
-package com.adit.arisan;
+package com.adit.arisan.model;
 
 public class Grup {
     public String namaArisan, keterangan,nominal;

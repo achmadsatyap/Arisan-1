@@ -13,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.adit.arisan.Peserta;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahPeserta;
+import com.adit.arisan.model.Peserta;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

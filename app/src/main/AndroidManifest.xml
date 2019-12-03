@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.adit.arisan">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PilihPeserta"/>
-        <activity android:name=".activity.DetailGrup"/>
+        <activity android:name=".activity.AnggotaGrup"></activity>
+        <activity android:name=".PilihPeserta" />
+        <activity android:name=".activity.DetailGrup" />
         <activity android:name=".activity.DetailAnggota" />
         <activity android:name=".activity.Arisann" />
         <activity android:name=".activity.AnggotaArisann" />
@@ -28,8 +32,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

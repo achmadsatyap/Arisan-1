@@ -108,45 +108,30 @@
         app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
 
     <Button
-        android:id="@+id/btn_kocok"
+        android:id="@+id/btn_tampilAnggotaGrup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:background="@drawable/button_blue"
-        android:text="Kocok"
+        android:text="Anggota"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_history"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_hasil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="321dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="158dp"
-        android:clickable="true"
-        android:src="@drawable/tambah"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_history" />
+    <!--    <Button-->
+<!--        android:id="@+id/btn_kocok"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:background="@drawable/button_blue"-->
+<!--        android:text="Kocok"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />-->
 
-    <TextView
-        android:id="@+id/pesertaArisan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="15dp"
-        android:text="peserta Arisan"
-        android:textColor="#313131"
-        android:textSize="32sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_kocok"
 
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
