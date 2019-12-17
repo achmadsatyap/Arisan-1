@@ -5,10 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.adit.arisan.LoginArisan;
 import com.adit.arisan.PilihPeserta;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahGrup;
@@ -18,12 +23,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.OnDisconnect;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class DetailGrup extends AppCompatActivity {
 
-    DatabaseReference databaseReference, detailArisan;
+    DatabaseReference databaseReference;
+    DatabaseReference detailArisan;
+    OnDisconnect user;
 
     TextView textArisan, textNominal, textKeterangan;
     Button Kocok, History, Anggota;
@@ -31,6 +39,38 @@ public class DetailGrup extends AppCompatActivity {
 
     private String NamaGrup, NamaPeserta;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+        switch (item.getItemId()) {
+//            case R.id.peserta_nav:
+//                startActivity(new Intent(getApplication(), AnggotaArisann.class));
+//                return true;
+            case R.id.arisan_nav:
+                startActivity(new Intent(getApplication(),Arisann.class));
+                return true;
+            case R.id.keluar_nav:
+                logout();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    private void logout() {
+        user = FirebaseDatabase.getInstance().getReference("User").onDisconnect();
+        Toast.makeText(DetailGrup.this, "Logout Success", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), LoginArisan.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

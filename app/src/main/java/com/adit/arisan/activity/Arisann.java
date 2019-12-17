@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,8 +14,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.adit.arisan.LoginArisan;
 import com.adit.arisan.R;
 import com.adit.arisan.TambahGrup;
 import com.adit.arisan.model.Grup;
@@ -24,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.OnDisconnect;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -31,7 +35,9 @@ import java.util.ArrayList;
 public class Arisann extends AppCompatActivity {
 
 
-    DatabaseReference databaseReference, arisanHasil;
+    DatabaseReference databaseReference;
+    DatabaseReference arisanHasil;
+    OnDisconnect user;
     ListView listView;
     ArrayAdapter<String> arrayAdapter;
     //    Model module;
@@ -40,6 +46,8 @@ public class Arisann extends AppCompatActivity {
     //    List<Peserta> pesertaList;
     HasilArisann hasilArisann;
     Grup grup;
+    public static final String PREFS_NAME = "LoginPrefs";
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -50,17 +58,29 @@ public class Arisann extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.peserta_nav:
-                startActivity(new Intent(getApplication(), AnggotaArisann.class));
-                return true;
+//            case R.id.peserta_nav:
+//                startActivity(new Intent(getApplication(), AnggotaArisann.class));
+//                return true;
             case R.id.arisan_nav:
                 startActivity(new Intent(getApplication(),Arisann.class));
                 return true;
+            case R.id.keluar_nav:
+                logout();
             default:
                 return super.onOptionsItemSelected(item);
         }
 
     }
+
+    private void logout() {
+        user = FirebaseDatabase.getInstance().getReference("User").onDisconnect();
+        Toast.makeText(Arisann.this, "Logout Success", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), LoginArisan.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +111,7 @@ public class Arisann extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                addArisan();
                 Intent intent = new Intent(Arisann.this, DetailGrup.class);
+//                addArisan();
                 intent.putExtra("namaArisan", listView.getItemAtPosition(i).toString());
                 startActivity(intent);
             }

@@ -37,11 +37,11 @@ public class AnggotaGrup extends AppCompatActivity {
     HasilArisann hasilArisann;
     ArrayList<String> namaA;
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.keluar, menu);
-        return true;
-    }
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.keluar, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {

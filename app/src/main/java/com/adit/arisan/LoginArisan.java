@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adit.arisan.activity.AnggotaArisann;
+import com.adit.arisan.activity.Arisann;
 import com.adit.arisan.model.Security;
 import com.adit.arisan.model.User;
 import com.google.firebase.database.DataSnapshot;
@@ -55,7 +56,7 @@ public class LoginArisan extends AppCompatActivity {
                         User login = dataSnapshot.child(username).getValue(User.class);
                         if (login.getPassword().equals(password)) {
                             Toast.makeText(LoginArisan.this, "Login Success", Toast.LENGTH_LONG).show();
-                            Intent intphto = new Intent(getApplicationContext(), AnggotaArisann.class);
+                            Intent intphto = new Intent(getApplicationContext(), Arisann.class);
                             startActivity(intphto);
                         } else {
                             Toast.makeText(LoginArisan.this, "Password Incorrect", Toast.LENGTH_LONG).show();

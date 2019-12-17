@@ -27,9 +27,9 @@ public class PesertaArisan extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.peserta_nav:
-                startActivity(new Intent(getApplication(), AnggotaArisann.class));
-                return true;
+//            case R.id.peserta_nav:
+//                startActivity(new Intent(getApplication(), AnggotaArisann.class));
+//                return true;
             case R.id.arisan_nav:
                 startActivity(new Intent(getApplication(),Arisann.class));
                 return true;

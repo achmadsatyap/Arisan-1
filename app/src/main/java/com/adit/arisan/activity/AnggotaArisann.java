@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,6 +35,8 @@ public class AnggotaArisann extends AppCompatActivity {
     ArrayList<String> pesertaList;
 //    List<Peserta> pesertaList;
     Peserta peserta;
+    public static final String PREFS_NAME = "LoginPrefs";
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -44,12 +47,18 @@ public class AnggotaArisann extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.peserta_nav:
-                startActivity(new Intent(getApplication(), AnggotaArisann.class));
-                return true;
+//            case R.id.peserta_nav:
+//                startActivity(new Intent(getApplication(), AnggotaArisann.class));
+//                return true;
             case R.id.arisan_nav:
                 startActivity(new Intent(getApplication(),Arisann.class));
                 return true;
+            case R.id.keluar_nav:
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.remove("logged");
+                editor.commit();
+                finish();
             default:
                 return super.onOptionsItemSelected(item);
         }
